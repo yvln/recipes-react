@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import './App.css';
-import PageSearchByIngredient from './components/pages/PageSearchByIngredient';
-import PageRecipesResults from './components/pages/PageRecipesResults';
+import FormSearch from './containers/FormSearch';
+import ListIngredients from './containers/ListIngredients';
+import RecipesSearch from './containers/RecipesSearch';
+import RecipesResults from './containers/RecipesResults';
+
 import PageFavourites from './components/pages/PageFavourites';
 import PageViewOne from './components/pages/PageViewOne';
 
@@ -13,22 +16,34 @@ class App extends Component {
       <Router>
         <div>
         
-         <Route path="/"
+          <ul>
+              <li><Link to="/">Look for a new recipe</Link></li>
+              <li><Link to="/recipes">Recipes</Link></li>
+              <li><Link to="/favourites">Favourites</Link></li>
+              <li><Link to="/recipe">One Recipe</Link></li>
+          </ul>
+
+        
+         <Route exact path="/"
               render={() => (
-                <PageSearchByIngredient /> 
+                <div>
+                  <FormSearch /> 
+                  <ListIngredients />
+                  <RecipesSearch /> 
+                </div>
               )} />
              
-         <Route path="/recipes"
+         <Route exact path="/recipes"
                 render={() => (
-                  <PageRecipesResults /> 
+                  <RecipesResults /> 
                 )} />
                
-         <Route path="/favourites"
+         <Route exact path="/favourites"
                 render={() => (
                   <PageFavourites /> 
                 )} />
                 
-         <Route path="/recipe"
+         <Route exact path="/recipe"
                 render={() => (
                   <PageViewOne /> 
                 )} />

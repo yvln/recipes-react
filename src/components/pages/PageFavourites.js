@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
-// import './PageViewOne.css';
+// import './PageFavourites.css';
 import Title from '../elements/Title';
 import ViewListRecipes from '../views/ViewListRecipes';
+import NewSearchButton from '../buttons/NewSearchButton';
 
-class PageViewOne extends Component {
+class PageFavourites extends Component {
   render() {
     return (
-      <div className="PageViewOne">
-          this is PAGE VIEW ONE
+      <div className="PageFavourites">
+          this is PAGE FAVOURITE
           <Title 
-            title='One Recipe'/>
+            title='Favourite Recipes'/>
           <ViewListRecipes />
+          <NewSearchButton />
       </div>
     );
   }
 }
 
-export default PageViewOne;
+export default PageFavourites;

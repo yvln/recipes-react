@@ -1,0 +1,19 @@
+.RecipeBox {
+  height: 300px;
+  width: 150px;
+  background-color: pink;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+    .title {
+      font-size: 15px;
+    }
+
+    .recipeImage {
+      max-height: 150px;
+      max-width: 75px;
+    }
