@@ -7,21 +7,32 @@ import RecipeBox from '../elements/RecipeBox';
 import NewSearchButton from '../buttons/NewSearchButton';
 
 class ViewListRecipes extends Component {
-  
+
+  state = {
+    idFav: null,
+  }
+
+  justAddedToFav = (which) => {
+    const { addToFavourite } = this.props;
+    this.setState({
+      idFav: which.recipe_id
+    });
+    addToFavourite(which);
+  }
+
   renderRecipeBox = () => {
     const { listResults, addToFavourite } = this.props;
     return listResults.map( (e, id) => {
       return <RecipeBox
-        key={id}
-        image_url={e.image_url}
-        title={e.title}
-        source_url={e.source_url}
-        publisher={e.publisher}
-        social_rank={e.social_rank}
-        />
+                mode='results'
+                key={id}
+                justAddedToFav={this.justAddedToFav}
+                idFav={this.state.idFav}
+                whichRecipe={e}
+                />
     })
   }
-  
+
   render() {
     return (
       <div className='ViewListRecipes'>
@@ -30,7 +41,7 @@ class ViewListRecipes extends Component {
       </div>
     );
   }
-  
+
 }
 
 ViewListRecipes.propTypes = {

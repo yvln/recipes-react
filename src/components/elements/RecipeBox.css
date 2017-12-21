@@ -1,7 +1,6 @@
 .RecipeBox {
   height: 300px;
   width: 150px;
-  background-color: pink;
   margin: 10px;
   display: flex;
   flex-direction: column;
@@ -9,11 +8,18 @@
   align-items: center;
 }
 
-    .title {
-      font-size: 15px;
+    .resultsSearch {
+      background-color: pink;
+    }
+    .favouriteRecipes {
+      background-color: blue;
     }
 
-    .recipeImage {
-      max-height: 150px;
-      max-width: 75px;
-    }
+        .title {
+          font-size: 15px;
+        }
+
+        .recipeImage {
+          max-height: 150px;
+          max-width: 75px;
+        }

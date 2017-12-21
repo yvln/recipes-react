@@ -9,19 +9,22 @@ const initialState = {
 const recipes = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SEARCH_RECIPES:
-    console.log('action', action);
       return {...state,
         recipesResult: action.payload.data,
       };
     case actionTypes.ADD_TO_FAVOURITE:
-      console.log(action.payload.favourite);
-      // axios.post('http://localhost:4000/saveIntoDb', {
-      //   favourite: action.payload.favourite
-      // }).then( res => {
-      //   return res.data;
-      // }).catch( err => {
-      //   console.log(err);
-      // })
+      return {...state,
+        favouriteRecipes: [...state.favouriteRecipes, action.payload.data],
+      };
+    case actionTypes.DELETE_FROM_FAVOURITE:
+      return {...state,
+        favouriteRecipes: state.favouriteRecipes.reduce((acc, curr) => {
+          if (curr.id !== action.payload.data.id) {
+            acc.push(curr);
+          }
+          return acc;
+        }, [])
+      };
     default:
       return state;
   }

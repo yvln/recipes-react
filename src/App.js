@@ -6,8 +6,8 @@ import FormSearch from './containers/FormSearch';
 import ListIngredients from './containers/ListIngredients';
 import RecipesSearch from './containers/RecipesSearch';
 import RecipesResults from './containers/RecipesResults';
+import RecipesFavourites from './containers/RecipesFavourites';
 
-import PageFavourites from './components/pages/PageFavourites';
 import PageViewOne from './components/pages/PageViewOne';
 
 class App extends Component {
@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-        
+
           <ul>
               <li><Link to="/">Look for a new recipe</Link></li>
               <li><Link to="/recipes">Recipes</Link></li>
@@ -23,31 +23,31 @@ class App extends Component {
               <li><Link to="/recipe">One Recipe</Link></li>
           </ul>
 
-        
+
          <Route exact path="/"
               render={() => (
                 <div>
-                  <FormSearch /> 
+                  <FormSearch />
                   <ListIngredients />
-                  <RecipesSearch /> 
+                  <RecipesSearch />
                 </div>
               )} />
-             
+
          <Route exact path="/recipes"
                 render={() => (
-                  <RecipesResults /> 
+                  <RecipesResults />
                 )} />
-               
+
          <Route exact path="/favourites"
                 render={() => (
-                  <PageFavourites /> 
+                  <RecipesFavourites />
                 )} />
-                
+
          <Route exact path="/recipe"
                 render={() => (
-                  <PageViewOne /> 
+                  <PageViewOne />
                 )} />
-        
+
         </div>
       </Router>
     );

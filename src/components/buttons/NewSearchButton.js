@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
+
 // import './NewSearchButton.css';
 
 class NewSearchButton extends Component {
   render() {
     return (
       <div className="NewSearchButton">
-        <button>BACK TO SEARCH VIEW</button>
+        <button>
+          <Link to="/">
+            BACK TO SEARCH VIEW
+          </Link>
+        </button>
       </div>
     );
   }

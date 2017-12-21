@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
 // import './PageViewOne.css';
+
 import Title from '../elements/Title';
 import ViewOneRecipe from '../views/ViewOneRecipe';
 import NewSearchButton from '../buttons/NewSearchButton';
@@ -11,7 +12,7 @@ class PageViewOne extends Component {
     return (
       <div className="PageViewOne">
           this is the PAGE VIEW ONE
-          <Title 
+          <Title
             title='Recipe'/>
           <ViewOneRecipe />
           <NewSearchButton />
