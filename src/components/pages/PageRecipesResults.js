@@ -3,15 +3,18 @@ import { Link } from 'react-router-dom'
 
 import './PageRecipesResults.css';
 
-import ViewListRecipes from '../views/ViewListRecipes';
-import NewSearchButton from '../buttons/NewSearchButton';
+import Title from '../elements/Title';
+import RecipesResults from '../../containers/RecipesResults';
+import RedirectButton from '../buttons/RedirectButton';
 
 class PageRecipesResults extends Component {
   render() {
     return (
-      <div className="PageRecipesResults">
-          <ViewListRecipes />
-          <NewSearchButton />
+      <div className='PageRecipesResults'>
+        <RedirectButton
+          mode='newsearch'
+          text='MAKE A NEW SEARCH' />
+        <RecipesResults />
       </div>
     );
   }

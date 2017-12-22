@@ -1,4 +1,53 @@
+html {
+  font-family: 'Dekko', cursive;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  min-height: 100vh;
+}
+
 body {
   margin: 0;
   padding: 0;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  font-family: 'Dekko', cursive;
+  cursor: crosshair;
+}
+
+button {
+  border: none;
+  font-family: 'Dekko', cursive;
+  transition: .3s;
+  cursor: crosshair;
+}
+button:hover {
+  transition: .3s;
+  transform: translateY(-2px);
+  box-shadow: 1px 1px 1px black;
+}
+
+input {
+  border: none;
+  font-family: 'Dekko', cursive;
+}
+
+a:focus, button:focus, input:focus {
+  outline: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
 }

@@ -1,0 +1,60 @@
+.ViewListIngredients {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+    .ListIngredients {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      height: 100%;
+      width: 100%;
+      max-width: 700px;
+      padding: 15px 0;
+      margin: 20px 10px;
+
+      background-color: #C2E7DA;
+      border-radius: 10px;
+    }
+
+        .oneIngredient {
+          transition: .5s;
+          width: 70%;
+          padding: 10px 0;
+          color: rgb(60,60,60);
+          font-size: 17px;
+          position: relative;
+        }
+        .oneIngredient:hover {
+          transition: .5s;
+          color: black;
+          font-weight: bold;
+        }
+            .oneIngredient .deleteIngredient{
+              display: none;
+            }
+            .oneIngredient:hover .deleteIngredient{
+              transition: .3s;
+              display: block;
+              position: absolute;
+              right: 15%;
+              top: 12px;
+              color: #A81649;
+              width: 22px;
+              height: 22px;
+              font-size: 13px;
+              font-weight: bold;
+              background-color: #F1FFE7;
+              border-radius: 50%;
+            }
+            .oneIngredient .deleteIngredient:hover{
+              transition: .3s;
+              transform: translateY(-1px);
+              box-shadow: 1px 1px 1px black;
+              background-color: #A81649;
+              color: #F1FFE7;
+            }

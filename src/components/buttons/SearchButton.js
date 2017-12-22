@@ -1,19 +1,19 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
 
-// import "./SearchButton.css";
+import './Button1.css';
 
 class SearchButton extends Component {
   render() {
     const { listIngredient, searchRecipes } = this.props;
     return (
-      <div className="SearchButton">
-        <button onClick={() => {searchRecipes(listIngredient)}}>
-          <Link to="/recipes">
-            SEARCH RECIPES FROM THIS LIST OF INGREDIENTS
-          </Link>
-        </button>
+      <div className='Button1Container'>
+        <Link to='/recipes'>
+          <button className='Button1' onClick={() => {searchRecipes(listIngredient)}}>
+            SEARCH RECIPES
+          </button>
+        </Link>
       </div>
     );
   }

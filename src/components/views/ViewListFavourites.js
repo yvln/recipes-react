@@ -4,23 +4,28 @@ import PropTypes from 'prop-types';
 // import './ViewListFavourites.css';
 
 import RecipeBox from '../elements/RecipeBox';
-import NewSearchButton from '../buttons/NewSearchButton';
 
 class ViewListFavourites extends Component {
+
   state = {
     idDeleted: null,
   }
 
-  justDeletedFromFav = (which) => {
+  componentDidMount() {
+    const { getAllFavourite } = this.props;
+    getAllFavourite();
+  }
+
+  justDeletedFromFav = (id) => {
     const { deleteFromFavourite } = this.props;
     this.setState({
-      idDeleted: which.recipe_id
+      idDeleted: id
     });
-    setTimeout(deleteFromFavourite(which), 1000);
+    setTimeout(() => {deleteFromFavourite(id)}, 1000);
   }
 
   renderRecipeBox = () => {
-    const { favouriteRecipes } = this.props;
+    const { favouriteRecipes, viewClickedViewMore } = this.props;
     return favouriteRecipes.map( (e, id) => {
       return <RecipeBox
                 mode='favourites'
@@ -33,10 +38,15 @@ class ViewListFavourites extends Component {
   }
 
   render() {
+    const { favouriteRecipes } = this.props;
     return (
       <div className='ViewListFavourites'>
-        <div className='recipesBoxes'>{this.renderRecipeBox()}</div>
-        <NewSearchButton />
+        { favouriteRecipes.length !== 0 &&
+          <div className='recipesBoxes'>{this.renderRecipeBox()}</div>
+        }
+        { favouriteRecipes.length === 0 &&
+          <div className='recipesBoxes'>You did not add any favourite recipe yet!</div>
+        }
       </div>
     );
   }
@@ -46,6 +56,8 @@ class ViewListFavourites extends Component {
 ViewListFavourites.propTypes = {
   favouriteRecipes: PropTypes.array.isRequired,
   deleteFromFavourite: PropTypes.func.isRequired,
+  viewMoreRecipe: PropTypes.func.isRequired,
+  getAllFavourite: PropTypes.func.isRequired,
 };
 
 export default ViewListFavourites;

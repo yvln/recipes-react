@@ -12,6 +12,12 @@ const mapDispatchToProps = dispatch => {
   return {
     deleteFromFavourite: recipe => {
       dispatch(actions.deleteFromFavouriteRecipes(recipe));
+    },
+    viewMoreRecipe: recipe_id => {
+      dispatch(actions.viewIngredients(recipe_id));
+    },
+    getAllFavourite: () => {
+      dispatch(actions.viewFavourites());
     }
   };
 };

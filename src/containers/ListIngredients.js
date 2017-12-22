@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import ViewListIngredients from "../components/views/ViewListIngredients";
-// import * as actions from "../actions";
+import * as actions from "../actions";
 
 const mapStateToProps = state => {
   return {
@@ -9,7 +9,11 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return {};
+  return {
+    deleteFromListIngredient: ingredient => {
+      dispatch(actions.deleteAnIngredient(ingredient));
+    },
+  };
 };
 
 const ListIngredients = connect(mapStateToProps, mapDispatchToProps)(ViewListIngredients);

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import PropTypes from "prop-types";
 
 // import './PageSearchByIngredient.css';
+
 import Title from '../elements/Title';
 import Form from '../elements/Form';
 import ViewListIngredients from '../views/ViewListIngredients';
@@ -12,9 +13,7 @@ class PageSearchByIngredient extends Component {
     const { addToListIngredient, listIngredient } = this.props;
     return (
       <div className="PageSearchByIngredient">
-          <Title 
-            title='Looking for a recipe'/>
-          <Form 
+          <Form
             addToListIngredient={addToListIngredient} />
           <ViewListIngredients
             listIngredient={listIngredient} />

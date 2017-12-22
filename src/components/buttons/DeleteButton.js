@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
 
-// import './DeleteButton.css';
+import './Button2.css';
 
 class DeleteButton extends Component {
   render() {
-    const { justDeletedFromFav, whichRecipe } = this.props;
+    const { justDeletedFromFav, id } = this.props;
     return (
-      <div className="DeleteButton">
-        <button onClick={() => {justDeletedFromFav(whichRecipe)}}>
-            DELETE
+      <div className='Button2Container'>
+        <button className='Button2' onClick={() => {justDeletedFromFav(id)}}>
+          {this.props.text}
         </button>
       </div>
     );
@@ -19,7 +19,7 @@ class DeleteButton extends Component {
 
 DeleteButton.propTypes = {
   justDeletedFromFav: PropTypes.func.isRequired,
-  whichRecipe: PropTypes.object.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default DeleteButton;

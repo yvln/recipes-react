@@ -3,36 +3,55 @@ import PropTypes from 'prop-types';
 
 import './RecipeBox.css';
 
+import ViewMoreButton from '../buttons/ViewMoreButton';
 import SaveButton from '../buttons/SaveButton';
 import DeleteButton from '../buttons/DeleteButton';
 
 class RecipeBox extends Component {
 
   render() {
-    const { whichRecipe, justDeletedFromFav, justAddedToFav } = this.props;
-    const { image_url, title, source_url, publisher, social_rank } = whichRecipe;
+    const { mode, idFav, idDeleted, whichRecipe, justDeletedFromFav, addToFavourite } = this.props;
+    const { image_url, title, source_url, publisher } = whichRecipe;
     return (
       <div className={`RecipeBox
-                      ${this.props.mode === 'results' ? 'resultsSearch' : 'favouriteRecipes'}
-                      ${this.props.idFav === whichRecipe.current_id ? 'addedToFav' : ''}
-                      ${this.props.idDeleted === whichRecipe.current_id ? 'deletedFromFav' : ''}`}>
+                      ${mode === 'results' ? 'resultsSearch' : 'favouriteRecipes'}
+                      ${idFav && idFav.indexOf(whichRecipe.recipe_id) !== -1 ? 'addedToFav' : ''}
+                      ${idDeleted == whichRecipe.recipe_id ? 'deletedFromFav' : ''}`}>
 
         <h1 className='title'>{title}</h1>
 
         <img className='recipeImage' alt='dish' src={image_url} />
-        <a href='source_url'>See this recipe published by {publisher}</a>
-        <span>Social rank: {social_rank}</span>
+        <a className='recipeLink' href={source_url} target='_blank'>See this recipe published by {publisher}</a>
 
-        {this.props.mode === 'favourites' &&
-          <DeleteButton
-            whichRecipe={whichRecipe}
-            justDeletedFromFav={justDeletedFromFav} />
+        { this.props.mode === 'favourites' &&
+          <div className='recipeBoxButtons'>
+            <ViewMoreButton
+              id={whichRecipe.recipe_id} />
+            <DeleteButton
+              text='DELETE'
+              id={whichRecipe.recipe_id}
+              justDeletedFromFav={justDeletedFromFav} />
+          </div>
         }
 
-        {this.props.mode === 'results' &&
-          <SaveButton
-            whichRecipe={whichRecipe}
-            justAddedToFav={justAddedToFav} />
+        { this.props.mode === 'results' && this.props.idFav.indexOf(whichRecipe.recipe_id) === -1 &&
+          <div className='recipeBoxButtons'>
+            <ViewMoreButton
+              id={whichRecipe.recipe_id} />
+            <SaveButton
+              addToFavourite={addToFavourite}
+              id={whichRecipe.recipe_id} />
+          </div>
+        }
+        { this.props.mode === 'results' && this.props.idFav.indexOf(whichRecipe.recipe_id) !== -1 &&
+          <div className='recipeBoxButtons'>
+            <ViewMoreButton
+              id={whichRecipe.recipe_id} />
+            <DeleteButton
+              text='UNSAVE'
+              id={whichRecipe.recipe_id}
+              justDeletedFromFav={justDeletedFromFav} />
+          </div>
         }
 
       </div>
@@ -42,9 +61,11 @@ class RecipeBox extends Component {
 
 RecipeBox.propTypes = {
   justDeletedFromFav: PropTypes.func,
-  justAddedToFav: PropTypes.func,
+  addToFavourite: PropTypes.func,
   whichRecipe: PropTypes.object.isRequired,
   mode: PropTypes.string.isRequired,
+  idDeleted: PropTypes.string,
+  idFav: PropTypes.array,
 };
 
 export default RecipeBox;

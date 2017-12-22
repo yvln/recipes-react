@@ -5,8 +5,8 @@ import './App.css';
 import FormSearch from './containers/FormSearch';
 import ListIngredients from './containers/ListIngredients';
 import RecipesSearch from './containers/RecipesSearch';
-import RecipesResults from './containers/RecipesResults';
-import RecipesFavourites from './containers/RecipesFavourites';
+import PageRecipesResults from './components/pages/PageRecipesResults';
+import PageFavourites from './components/pages/PageFavourites';
 
 import PageViewOne from './components/pages/PageViewOne';
 
@@ -14,38 +14,40 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className='App'>
 
-          <ul>
-              <li><Link to="/">Look for a new recipe</Link></li>
-              <li><Link to="/recipes">Recipes</Link></li>
-              <li><Link to="/favourites">Favourites</Link></li>
-              <li><Link to="/recipe">One Recipe</Link></li>
-          </ul>
+          <h1 className='App-title'>Recipes</h1>
+
+          <div className='Nav'>
+              <Link className='NavLinks' to='/'>Look for a new recipe</Link>
+              <Link className='NavLinks' to='/recipes'>Recipes</Link>
+              <Link className='NavLinks' to='/favourites'>Favourites</Link>
+              <Link className='NavLinks' to='/create'>Create your recipe</Link>
+          </div>
 
 
-         <Route exact path="/"
+         <Route exact path='/'
               render={() => (
-                <div>
+                <div className="FormView">
                   <FormSearch />
                   <ListIngredients />
                   <RecipesSearch />
                 </div>
               )} />
 
-         <Route exact path="/recipes"
+         <Route exact path='/recipes'
                 render={() => (
-                  <RecipesResults />
+                  <PageRecipesResults />
                 )} />
 
-         <Route exact path="/favourites"
+         <Route exact path='/favourites'
                 render={() => (
-                  <RecipesFavourites />
+                  <PageFavourites />
                 )} />
 
-         <Route exact path="/recipe"
-                render={() => (
-                  <PageViewOne />
+         <Route exact path='/recipe/:id'
+                render={(props) => (
+                  <PageViewOne {...props} />
                 )} />
 
         </div>

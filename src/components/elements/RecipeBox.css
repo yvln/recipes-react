@@ -1,25 +1,59 @@
 .RecipeBox {
-  height: 300px;
-  width: 150px;
+  height: 100vh;
+  width: 30vw;
+  min-width: 200px;
+  min-height: 200px;
+  max-height: 300px;
+  max-width: 300px;
   margin: 10px;
+  padding: 20px 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  border-radius: 10px;
+  color: #1A1B41;
 }
 
-    .resultsSearch {
-      background-color: pink;
-    }
-    .favouriteRecipes {
-      background-color: blue;
-    }
-
-        .title {
-          font-size: 15px;
+        .resultsSearch {
+          background-color: #C2E7DA;
+        }
+        .resultsSearch.addedToFav {
+          background-color: #BAFF29;
         }
 
+        .favouriteRecipes {
+          background-color: #6290C3;
+        }
+        .favouriteRecipes.deletedFromFav {
+          background-color: #F1FFE7;
+        }
+
+            .title {
+              font-size: 18px;
+            }
+            .resultsSearch .title {
+              color: #1A1B41;
+            }
+            .favouriteRecipes .title {
+              color: #BAFF29;
+            }
+
         .recipeImage {
+          height: 100%;
+          width: 100%;
           max-height: 150px;
-          max-width: 75px;
+          max-width: 150px;
+        }
+
+        .recipeLink {
+          font-size: 13px;
+          color: black;
+        }
+
+        .recipeBoxButtons {
+          width: 100%;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
         }

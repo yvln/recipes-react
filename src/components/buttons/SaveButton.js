@@ -2,24 +2,25 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
 
-// import './SaveButton.css';
+import './Button2.css';
 
 class SaveButton extends Component {
   render() {
-    const { justAddedToFav, whichRecipe } = this.props;
+    const { addToFavourite } = this.props;
     return (
-      <div className="SaveButton">
-        <button onClick={() => {justAddedToFav(whichRecipe)}}>
-          SAVE THIS RECIPE TO THE FAVOURITE
-        </button>
+      <div className='Save Button2Container'>
+        <Link to='/recipes'>
+          <button className='Button2' onClick={() => {addToFavourite(this.props.id)}}>
+            SAVE
+          </button>
+        </Link>
       </div>
     );
   }
 }
 
 SaveButton.propTypes = {
-  justAddedToFav: PropTypes.func.isRequired,
-  whichRecipe: PropTypes.object.isRequired,
+  addToFavourite: PropTypes.func.isRequired,
 };
 
 export default SaveButton;

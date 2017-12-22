@@ -4,10 +4,16 @@ const initialState = {
   ingredients: [],
   recipesResult: [],
   favouriteRecipes: [],
+  ingredientsOneRecipe: [],
+  recipeClicked: []
 };
 
 const recipes = (state = initialState, action) => {
   switch (action.type) {
+    case actionTypes.GET_ALL_FAVOURITES:
+      return {...state,
+        favouriteRecipes: action.payload.data,
+      };
     case actionTypes.SEARCH_RECIPES:
       return {...state,
         recipesResult: action.payload.data,
@@ -24,6 +30,14 @@ const recipes = (state = initialState, action) => {
           }
           return acc;
         }, [])
+      };
+    case actionTypes.GET_INGREDIENTS:
+      return {...state,
+        ingredientsOneRecipe: action.payload.data,
+      };
+    case actionTypes.GET_FULL_RECIPE_BY_ID:
+      return {...state,
+        recipeClicked: action.payload.recipe,
       };
     default:
       return state;

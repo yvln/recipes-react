@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-// import './Form.css';
+import './Form.css';
 
 class Form extends Component {
-  
+
   valueInput = '';
 
   handleChange = event => {
@@ -20,8 +20,8 @@ class Form extends Component {
                 event.preventDefault();
                 event.target.reset();
                 addToListIngredient(this.valueInput)}}>
-          <input autoComplete='off' name='new-ingredient' type='text' onChange={this.handleChange} />
-          <input type='submit' value='Add to the list'/>
+          <input className='addIngredientInput' autoComplete='off' name='new-ingredient' type='text' onChange={this.handleChange} />
+          <button className='addIngredientSubmit' type='submit'>ADD</button>
         </form>
       </div>
     );

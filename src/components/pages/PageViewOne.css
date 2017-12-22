@@ -1,0 +1,14 @@
+.PageViewOne {
+  width: 90%;
+  margin: 0 5%;
+  padding: 10px;
+  background-color: pink;
+  border-radius: 10px;
+}
+
+    .buttonsViewOne {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;  
+    }

@@ -1,0 +1,26 @@
+.Button2Container {
+  width: 100%;
+}
+
+    .Button2 {
+      margin: 0 auto;
+      padding: 5px;
+      width: 65px;
+      height: 30px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .ViewMore .Button2 {
+      font-size: 12px;
+    }
+    .Save .Button2 {
+      font-size: 14px;
+    }
+
+    .Button2Container a:hover .Button2, .Button2Container .Button2:hover{
+      background-color: #1A1B41;
+      color: #C2E7DA;
+    }

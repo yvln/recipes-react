@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 // import './PageFavourites.css';
 
 import Title from '../elements/Title';
-import ViewListFavourites from '../views/ViewListFavourites';
-import NewSearchButton from '../buttons/NewSearchButton';
+import RedirectButton from '../buttons/RedirectButton';
+import RecipesFavourites from '../../containers/RecipesFavourites';
 
 class PageFavourites extends Component {
   render() {
@@ -13,8 +13,8 @@ class PageFavourites extends Component {
       <div className="PageFavourites">
           <Title
             title='Favourite Recipes'/>
-          <ViewListFavourites />
-          <NewSearchButton />
+          <RedirectButton />
+          <RecipesFavourites />
       </div>
     );
   }

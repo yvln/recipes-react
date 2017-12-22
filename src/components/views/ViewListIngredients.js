@@ -1,31 +1,34 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-// import './ViewListIngredients.css';
+import './ViewListIngredients.css';
 
 import SearchButton from '../buttons/SearchButton';
 
 class ViewListIngredients extends Component {
-  
+
   renderListIngredient = () => {
-    const { listIngredient } = this.props;
+    const { listIngredient, deleteFromListIngredient } = this.props;
     return listIngredient.map( (e,id) => {
-      return <li key={id}>{e}</li>
+      return <div className='oneIngredient' key={id}>{e}<span onClick={() => {deleteFromListIngredient(id)}} className='deleteIngredient'>x</span></div>
     })
   }
-  
+
   render() {
+    const { listIngredient } = this.props;
     return (
-      <div className="ViewListIngredients">
-        <ul>{this.renderListIngredient()}</ul>
-      </div>
+        <div className="ViewListIngredients">
+        { listIngredient.length !== 0 &&
+          <div className="ListIngredients">{this.renderListIngredient()}</div>
+        }
+        </div>
     );
   }
-  
 }
 
 ViewListIngredients.propTypes = {
   listIngredient: PropTypes.array.isRequired,
+  deleteFromListIngredient: PropTypes.func.isRequired,
 };
 
 export default ViewListIngredients;
