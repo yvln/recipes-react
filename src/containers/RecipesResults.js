@@ -20,6 +20,9 @@ const mapDispatchToProps = dispatch => {
     viewMoreRecipe: recipe_id => {
       dispatch(actions.viewIngredients(recipe_id));
     },
+    getAllFavourite: () => {
+      dispatch(actions.viewFavourites());
+    }
   };
 };
 

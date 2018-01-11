@@ -15,12 +15,15 @@ class ViewOneRecipe extends Component {
 
   renderRecipeInfo() {
     const { recipeClicked } = this.props;
-    return (
-      <div>
-        <h1>{recipeClicked.title}</h1>
-        <img src={recipeClicked.image_url} />
-      </div>
-    )
+    if (recipeClicked) {
+      return (
+        <div>
+          <h1>{recipeClicked.title}</h1>
+          <img alt='recipe image' src={recipeClicked.image_url} />
+        </div>
+      )
+    }
+    return null;
   }
 
   renderIngredients = () => {

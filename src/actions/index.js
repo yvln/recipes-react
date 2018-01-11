@@ -75,12 +75,13 @@ export const viewIngredients = recipe_id => {
           return store.recipes.recipesResult.find( e => {
             return e.recipe_id === id
           })
-        }
+        };
 
 // MANAGE RECIPES : send data of the full recipe from its id
 export const viewRecipeInfo = recipe_id => {
   return (dispatch, getState) => {
     const recipe = getFullRecipeById(getState(), recipe_id);
+    console.log('recipe', recipe);
     dispatch({
       type: actionTypes.GET_FULL_RECIPE_BY_ID,
       payload: {

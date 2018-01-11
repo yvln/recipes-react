@@ -9,12 +9,10 @@
       width: 200px;
       border-radius: 10px;
       font-size: 18px;
-      color: black;
       background-color: white;
     }
-        .Button1:hover {
+
+        .Button1Container a:hover .Button1, .Button1Container .Button1:hover{
           background-color: #1A1B41;
+          color: #BAFF29;
         }
-            .Button1:hover a{
-              color: #BAFF29;
-            }

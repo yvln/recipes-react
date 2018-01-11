@@ -14,23 +14,25 @@ class ViewListRecipes extends Component {
   }
 
   componentDidMount() {
-    const { favouriteRecipes } = this.props;
-    favouriteRecipes.forEach(e => {
-      this.setState({
-        idFav: [...this.state.idFav, e.recipe_id]
-      })
-    })
+    const { getAllFavourite, favouriteRecipes } = this.props;
+    getAllFavourite();
+    this.getIdFavourite();
   }
 
   componentDidUpdate(prevProps) {
     const { favouriteRecipes } = this.props;
     if (prevProps.favouriteRecipes.length !== favouriteRecipes.length) {
-      favouriteRecipes.forEach(e => {
-        this.setState({
-          idFav: [...this.state.idFav, e.recipe_id]
-        })
-      })
+      this.getIdFavourite();
     }
+  }
+
+  getIdFavourite = () => {
+    const { favouriteRecipes } = this.props;
+    favouriteRecipes.forEach(e => {
+      this.setState({
+        idFav: [...this.state.idFav, e.recipe_id]
+      })
+    });
   }
 
   justDeletedFromFav = (id) => {

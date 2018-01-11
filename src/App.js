@@ -49,7 +49,6 @@ class App extends Component {
                 render={(props) => (
                   <PageViewOne {...props} />
                 )} />
-
         </div>
       </Router>
     );

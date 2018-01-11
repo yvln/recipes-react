@@ -8,9 +8,35 @@ import SaveButton from '../buttons/SaveButton';
 import DeleteButton from '../buttons/DeleteButton';
 
 class RecipeBox extends Component {
+  state = {
+    idFav: []
+  }
+  
+  componentDidMount() {
+    this.getDataFav();
+  }
+  
+  componentDidUpdate(prevProps) {
+    const { idFav } = this.props;
+    if (idFav && prevProps.idFav.length !== idFav.length) {
+      this.getDataFav();
+    }
+  }
+  
+  getDataFav = () => {
+    const { idFav } = this.props;
+    if (idFav) {
+      idFav.forEach(e => {
+        this.setState({
+          idFav: [...this.state.idFav, e]
+        })
+      })
+    }
+  }
 
   render() {
-    const { mode, idFav, idDeleted, whichRecipe, justDeletedFromFav, addToFavourite } = this.props;
+    const { mode, idDeleted, whichRecipe, justDeletedFromFav, addToFavourite } = this.props;
+    const { idFav } = this.state;
     const { image_url, title, source_url, publisher } = whichRecipe;
     return (
       <div className={`RecipeBox
